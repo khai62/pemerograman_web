@@ -2,25 +2,127 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Gambar 2</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    nav {
+      background-color: #0056b3;
+      text-align: center;
+      padding: 12px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #007bff;
+    }
+
+    .content img {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 0 auto 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .content p {
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
+
+      .content {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <header>
+    <h1>Web Ikan</h1>
+  </header>
 
   <!-- Navigasi -->
   <nav>
     <a href="index.html">Beranda</a>
-    <a href="#">Kontak Saya</a>
-    <a href="#">Tentang Saya</a>
+    <a href="contact.html">Kontak Saya</a>
+    <a href="about.html">Tentang Saya</a>
   </nav>
 
   <!-- Konten Detail -->
   <div class="content">
     <h2>Detail Gambar 2</h2>
-    <img src="/pertemuan3/img/ikan2.png" alt="Gambar 2" style="max-width: 500px; width: 100%;">
+    <img src="/pertemuan3/img/ikan2.png" alt="Gambar 2">
     <p>Ikan ini merupakan jenis ikan hias air tawar yang sangat populer. Warna tubuhnya yang unik menjadikannya favorit di kalangan pecinta akuarium.</p>
     <p>Ikan ini memerlukan air bersih dan pakan khusus agar dapat tumbuh sehat dan aktif.</p>
-    <a href="index.html">← Kembali ke Beranda</a>
   </div>
 
   <!-- Footer -->
