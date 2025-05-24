@@ -1,185 +1,68 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Ikan</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-  height: 100%;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1; /* Ini memastikan konten utama mengambil ruang yang tersedia */
-}
-
-    header {
-      background-color: #007bff;
-      padding: 20px 0;
-      text-align: center;
-      color: white;
-    }
-
-    h1 {
-      font-size: 28px;
-    }
-
-    nav {
-      background-color: #0056b3;
-      text-align: center;
-      padding: 12px 0;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #ffc107;
-    }
-
-    .content {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery-item {
-      background-color: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-
-    .gallery-item img:hover {
-      transform: scale(1.05);
-    }
-
-    .gallery-item h3 {
-      font-size: 20px;
-      margin-top: 15px;
-      color: #007bff;
-    }
-
-    .gallery-item p {
-      margin-top: 10px;
-      font-size: 16px;
-    }
-
-    footer {
-  background-color: #343a40;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  font-size: 14px;
-  margin-top: auto; /* Footer akan terletak di bawah konten */
-}
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 22px;
-      }
-
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .gallery-item {
-        padding: 15px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="index">
 
   <header>
-    <h1>Web Ikan</h1>
+    <div class="hero-text">
+      <h1>Selamat Datang di Dunia Ikan</h1>
+      <p>Jelajahi keindahan dan keunikan ikan dari seluruh dunia.</p>
+      <a href="#galeri" class="cta-button">Lihat Koleksi</a>
+    </div>
   </header>
 
-  <!-- Navigasi -->
   <nav>
     <a href="index.html">Beranda</a>
     <a href="contact.html">Kontak Saya</a>
     <a href="about.html">Tentang Saya</a>
   </nav>
 
-  <!-- Konten Utama -->
+  <div class="content" id="galeri">
+    <div class="gallery">
+      
   <div class="content">
     <div class="gallery">
       <div class="gallery-item">
         <a href="detail1.html">
-          <img src="/pertemuan3/img/ikan1.png" alt="Gambar 1">
+          <img src="/pertemuan3/img/ikan1.png" alt="Gambar 1" />
         </a>
-        <h3>Judul Gambar 1</h3>
-        <p>Ini adalah deskripsi singkat tentang gambar pertama.</p>
+        <h3>Ikan Cupang</h3>
+        <p>Ikan cupang adalah ikan air tawar yang terkenal karena warna-warni cerah, sirip menjuntai indah, dan sifat agresif. Ikan ini banyak dipelihara sebagai ikan hias dan mudah dikenali dari tampilannya yang mencolok.</p>
       </div>
       <div class="gallery-item">
         <a href="detail2.html">
-          <img src="/pertemuan3/img/ikan2.png" alt="Gambar 2">
+          <img src="/pertemuan3/img/ikan2.png" alt="Gambar 2" />
         </a>
-        <h3>Judul Gambar 2</h3>
-        <p>Ini adalah deskripsi singkat tentang gambar kedua.</p>
+        <h3>Ikan Hiu</h3>
+        <p>Ikan hiu adalah ikan predator laut yang terkenal dengan gigi tajam, kecepatan berenang tinggi, dan perannya sebagai penguasa rantai makanan di laut. Hiu telah hidup di lautan sejak ratusan juta tahun lalu dan memiliki indera penciuman yang sangat tajam.</p>
       </div>
       <div class="gallery-item">
         <a href="detail3.html">
-          <img src="/pertemuan3/img/ikan3.png" alt="Gambar 3">
+          <img src="/pertemuan3/img/ikan3.png" alt="Gambar 3" />
         </a>
-        <h3>Judul Gambar 3</h3>
-        <p>Ini adalah deskripsi singkat tentang gambar ketiga.</p>
+        <h3>Ikan Badut</h3>
+        <p>Ikan badut (clownfish) adalah ikan kecil berwarna cerah oranye dengan garis putih mencolok yang hidup di antara tentakel anemon laut. Dikenal luas karena film Finding Nemo, ikan ini memiliki hubungan simbiosis unik dengan anemon.</p>
       </div>
       <div class="gallery-item">
         <a href="detail4.html">
-          <img src="/pertemuan3/img/ikan4.png" alt="Gambar 4">
+          <img src="/pertemuan3/img/ikan4.png" alt="Gambar 4" />
         </a>
-        <h3>Judul Gambar 4</h3>
-        <p>Ini adalah deskripsi singkat tentang gambar keempat.</p>
+        <h3>Ikan Cardinal Banggai</h3>
+        <p>Pterapogon kauderni adalah ikan kecil eksotis yang berasal dari Kepulauan Banggai, Sulawesi Tengah, Indonesia. Memiliki tubuh perak dengan garis hitam mencolok dan sirip panjang menjuntai, ikan ini sangat populer di akuarium laut.</p>
       </div>
     </div>
   </div>
+    </div>
+  </div>
 
-  <!-- Footer -->
   <footer>
-    &copy; 2025 Khairuddin. Hak cipta dilindungi.
+    &copy; 2025 Khairuddin. Hak cipta dilindungi. | <a href="privacy.html">Kebijakan Privasi</a>
   </footer>
 
 </body>

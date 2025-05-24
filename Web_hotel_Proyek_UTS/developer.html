@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yello Hotel | Developer</title>
+     <link rel="icon" type="image/png" href="/asset/image/logos.png">
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Modern Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, rgb(187, 190, 2) 0%, rgb(93, 95, 1) 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+         /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: rgb(187, 190, 2);
+            width: 200px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li {
+            margin: 0;
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid #eee;
+            list-style-type: none;
+        }
+        
+        .dropdown-menu a {
+            color: #333;
+            display: block;
+            text-decoration: none;
+        
+        }
+        
+        .dropdown-menu a:hover {
+            color: rgb(187, 190, 2);
+        }
+        
+        /* Modern Navbar Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin-left: 1.8rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        
+        /* Active Link */
+        .nav-links a.active {
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
+            background-color: #fff;
+            height: 3px;
+        }
+        
+        /* Hero Section with Modern Design */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('/asset/image/developer-bg.jpg') center/cover no-repeat;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(187, 190, 2, 0.8) 0%, rgba(93, 95, 1, 0.8) 100%);
+            z-index: 0;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Modern Developer Profile */
+        .developer-profile {
+            padding: 60px 0;
+        }
+        
+        .developer-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px;
+            max-width: 900px;
+            width: 100%;
+            margin: -80px auto 50px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+        }
+        
+        .developer-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+        
+        .developer-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .developer-name {
+            font-size: 2.2rem;
+            color: rgb(93, 95, 1);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .developer-title {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .developer-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: rgb(187, 190, 2);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .developer-bio {
+            margin-bottom: 35px;
+            line-height: 1.8;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .developer-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, rgb(187, 190, 2) 0%, rgb(93, 95, 1) 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(187, 190, 2, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(187, 190, 2, 0.4);
+        }
+        
+        .developer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(187, 190, 2, 0.1);
+            font-weight: 500;
+        }
+        
+        .contact-link:hover {
+            background: rgb(187, 190, 2);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(187, 190, 2, 0.3);
+        }
+        
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 50px;
+            margin-top: 30px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: rgb(93, 95, 1);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: rgb(187, 190, 2);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            border: 1px solid #eee;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-info {
+            padding: 25px;
+        }
+        
+        .portfolio-title {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: rgb(93, 95, 1);
+            font-weight: 600;
+        }
+        
+        .portfolio-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgb(187, 190, 2) 0%, rgb(93, 95, 1) 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(187, 190, 2, 0.3);
+        }
+        
+        .portfolio-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(187, 190, 2, 0.4);
+        }
+        
+        .portfolio-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Modern Footer */
+        footer {
+            background: linear-gradient(135deg, rgb(93, 95, 1) 0%, rgb(50, 51, 0) 100%);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: rgb(187, 190, 2);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                background: linear-gradient(135deg, rgb(187, 190, 2) 0%, rgb(93, 95, 1) 100%);
+                height: calc(100vh - 70px);
+                width: 60%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 3rem;
+                transition: right 0.5s ease;
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .developer-card {
+                padding: 40px 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .developer-name {
+                font-size: 1.8rem;
+            }
+            
+            .portfolio-section {
+                padding: 40px 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .developer-card {
+                padding: 30px 20px;
+                margin-top: -60px;
+            }
+            
+            .developer-contact {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .contact-link {
+                justify-content: center;
+            }
+        }
+    </style>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="home.html" class="logo">
+                <img src="/asset/image/logos.png" alt="Yello Hotel Logo" style="height: 40px; margin-right: 10px;">
+                Harbour Bay
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#">Tentang Kami</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home.html#about">Profil</a></li>
+                            <li><a href="/home.html#restoran">Restoran</a></li>
+                            <li><a href="/home.html#fasilitas">Fasilitas</a></li>
+                            <li><a href="/home.html#kontak">Kontak</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="kamar.html">Kamar</a></li>
+                    <li><a href="meeting.html">Meeting / Event</a></li>
+                    <li><a href="lokasi.html">Lokasi</a></li>
+                    <li><a href="developer.html" class="active">Developer</a></li>
+                </ul>
+                
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Tim Pengembang</h1>
+            <p class="subtitle">Kreator di balik pengembang website Yello Hotel Harbour Bay</p>
+        </div>
+    </section>
+    
+    <main class="container">
+        <div class="developer-profile">
+            <div class="developer-card">
+                <img src="/asset/image/khai.jpeg" alt="Khairuddin" class="developer-avatar">
+                <h2 class="developer-name">Khairuddin</h2>
+                <h2 class="developer-name">221510062</h2>
+                <p class="developer-title">Mobile Developer | IT Support | IoT Engineer</p>
+                
+                <div class="developer-bio">
+                    <p>Sebagai pengembang utama website Yello Hotel Harbour Bay, saya Mahasiswa prodi sistem informasi dari Universitas Putera Batam </p>
+                    <p>Website ini dibuat atas dasar tugas UTS yang diberikan oleh dosen pengampu sebagai syarat lulus mata kuliah Pemerograman web</p>
+                </div>
+                
+                <div class="developer-skills">
+                    <span class="skill-tag">HTML5 & CSS3</span>
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">IoT</span>
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">UI Design</span>
+                    <span class="skill-tag">Git Version Control</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                </div>
+                
+                <div class="developer-contact">
+                    <a href="mailto:kh683.ai@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="https://github.com/khai62" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/khairuddin-co/" target="_blank" class="contact-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                   
+            </div>
+            
+            <div class="portfolio-section">
+                <h2 class="section-title">Portfolio Terkini</h2>
+                
+                <div class="portfolio-items">
+                    <div class="portfolio-item">
+                        <img src="/asset/image/mobile.png" alt="Luxury Hotel Website" class="portfolio-image">
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">Aplikasi Mobile</h3>
+                            <p class="portfolio-desc">Platform untuk membaca dan mempelajari biografi para ilmuan dunia yang dibuat menggunakan Framework Flutter</p>
+                            <a href="https://github.com/khai62/ilmuan" class="portfolio-link">Lihat Proyek <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img src="/asset/image/iot.jpeg" alt="Restaurant Management System" class="portfolio-image">
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">Alat Monitoring Suhu dan Kelembapan</h3>
+                            <p class="portfolio-desc">Memanfaatkan teknologi sensor (IoT) dalam dunia nyata agar bisa memberikan sebuah solusi yang ramah lingkungan</p>
+                            <a href="https://www.upbatam.ac.id/berita_full-1535" class="portfolio-link">Lihat Proyek <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <img src="/asset/image/porto.png" alt="Travel Mobile App" class="portfolio-image">
+                        <div class="portfolio-info">
+                            <h3 class="portfolio-title">Web Portofolio</h3>
+                            <p class="portfolio-desc">Website Portofolio pribadi yang menjelaskan tentang riwayat hidup developer</p>
+                            <a href="https://khai683.github.io/" class="portfolio-link">Lihat Proyek <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Yello Hotel Harbour Bay. All rights reserved</p>
+            <p>Dikembangkan oleh <a href="developer.html">Khairuddin</a></p>
+         
+        </div>
+    </footer>
+</body>
+<script src="/script/script.js"></script>
+</html>
